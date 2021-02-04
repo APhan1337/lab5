@@ -10,6 +10,17 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+
+	// Add any additional listeners here
+	$("a.anagram").click(nameClick);
+}
+
+function nameClick(e) {
+	// prevent the page from reloading
+	e.preventDefault();
+	console.log($(this).find("h3").text() + " clicked!");
+	var anagram = anagrammedName($(this).find("h3").text());
+	$(this).find("h3").text(anagram);
 }
 
 function anagrammedName(name) {
